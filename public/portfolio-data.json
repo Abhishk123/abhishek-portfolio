@@ -5,8 +5,7 @@
     "subtitles": [
       "Software Engineer",
       "Automation Architect",
-      "JavaScript Specialist",
-      "Lightning JS Expert"
+      "JavaScript Specialist"
     ],
     "description": "A Senior Software Engineer with over 4 years of experience specializing in high-performance JavaScript-based application development, custom embedded frameworks (Lightning JS), and scalable test automation architectures using Cypress.",
     "aboutTitle": "Transforming ideas into high-performance software",
@@ -78,6 +77,49 @@
             "visible": true
           }
         ]
+      }
+    ],
+    "company": "Tata Elxsi Limited",
+    "logoText": "TE",
+    "role": "Senior Engineer",
+    "duration": "2021 - Present",
+    "location": "Bengaluru, India",
+    "summary": "Architecting and engineering critical software solutions, building high-performance embedded TV/STB apps, and designing robust, automated testing frameworks from scratch.",
+    "achievements": [
+      {
+        "title": "Application Development (Lightning JS)",
+        "text": "Architected and built a custom <strong>Certification App</strong> using <strong>Lightning JS</strong> designed for TV and set-top box platforms, ensuring high-performance execution.",
+        "tag": "Lightning JS",
+        "icon": "fa-solid fa-code",
+        "visible": true
+      },
+      {
+        "title": "System Integration (WebSockets)",
+        "text": "Engineered logic for the application to receive and execute complex commands via <strong>WebSockets</strong>, successfully bridging the gap between test suites and platform hardware capabilities.",
+        "tag": "WebSockets",
+        "icon": "fa-solid fa-network-wired",
+        "visible": true
+      },
+      {
+        "title": "Framework Architecture (Cypress)",
+        "text": "Designed a robust <strong>Cypress automation framework</strong> from the ground up to validate API support, system settings, and third-party application behaviors.",
+        "tag": "Cypress",
+        "icon": "fa-solid fa-vial",
+        "visible": true
+      },
+      {
+        "title": "Technical Leadership & Mentorship",
+        "text": "Developed custom glue code and modular JS commands, spearheaded peer code reviews to maintain code quality, and guided junior team members in framework design, effective script debugging, and clean coding practices.",
+        "tag": "Leadership",
+        "icon": "fa-solid fa-users-gear",
+        "visible": true
+      },
+      {
+        "title": "\"Extra Mile\" Award",
+        "text": "Received the prestigious <strong>\"Extra Mile\" award</strong> for delivering high-quality, maintainable code under tight deadlines and meeting critical project milestones.",
+        "tag": "Award",
+        "icon": "fa-solid fa-trophy",
+        "visible": true
       }
     ]
   },
