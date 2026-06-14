@@ -8,7 +8,7 @@
         <div class="image-frame-container">
           <div class="image-frame-glow"></div>
           <div class="image-frame">
-            <img src="profile.png" alt="Abhishek Urs C J" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' fill=\'%23111622\'><rect width=\'100\' height=\'100\'/><circle cx=\'50\' cy=\'40\' r=\'20\' fill=\'%238b5cf6\'/><path d=\'M20,90 Q50,60 80,90\' fill=\'%2306b6d4\'/></svg>'; this.title='Please add profile.png to directory';" />
+            <img src="/profile.png" alt="Abhishek Urs C J" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\' fill=\'%23111622\'><rect width=\'100\' height=\'100\'/><circle cx=\'50\' cy=\'40\' r=\'20\' fill=\'%238b5cf6\'/><path d=\'M20,90 Q50,60 80,90\' fill=\'%2306b6d4\'/></svg>'; this.title='Please add profile.png to directory';" />
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
 
         <!-- Stats Grid -->
         <div class="stats-grid">
-          @for (stat of dataService.data().profile.stats; track stat.label) {
+          @for (stat of dataService.data().profile.stats; track $index) {
             <div class="stat-card glass-card">
               <span class="stat-number">{{ stat.number }}</span>
               <span class="stat-label">{{ stat.label }}</span>

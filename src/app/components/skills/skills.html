@@ -3,7 +3,7 @@
     <h2 class="section-title reveal-item">Technical Skills</h2>
 
     <div class="grid-2 skills-grid">
-      @for (category of dataService.data().skills.categories; track category.title) {
+      @for (category of dataService.data().skills.categories; track $index) {
         @if (category.visible) {
           <div class="skill-category-card glass-card reveal-item">
             <!-- Background Accent Glow -->
@@ -15,7 +15,7 @@
             </div>
 
             <div class="skills-list">
-              @for (skill of category.skills; track skill.name) {
+              @for (skill of category.skills; track $index) {
                 <div class="skill-item">
                   <div class="skill-info">
                     <span class="skill-name">{{ skill.name }}</span>

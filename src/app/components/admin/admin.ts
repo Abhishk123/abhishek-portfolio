@@ -101,7 +101,7 @@ export class Admin {
         this.gitBranch
       );
       
-      alert('Success! Configuration committed to GitHub. Your Pages site will update in 1-2 minutes!');
+      alert('Success! Configuration committed to GitHub. Your Netlify site will update in 1-2 minutes!');
     } catch (e: any) {
       console.error(e);
       alert('Sync failed: ' + (e.message || 'Please check your token permissions, repository name, or internet connection.'));

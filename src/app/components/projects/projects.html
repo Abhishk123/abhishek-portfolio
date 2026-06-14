@@ -3,7 +3,7 @@
     <h2 class="section-title reveal-item">Featured Projects</h2>
 
     <div class="grid-3 projects-grid">
-      @for (project of dataService.data().projects.list; track project.title) {
+      @for (project of dataService.data().projects.list; track $index) {
         @if (project.visible) {
           <div class="project-card glass-card reveal-item">
             <div class="project-header">
@@ -18,7 +18,7 @@
 
             <div class="project-footer">
               <div class="project-tags">
-                @for (tag of project.tags; track tag) {
+                @for (tag of project.tags; track $index) {
                   <span class="tag">{{ tag }}</span>
                 }
               </div>

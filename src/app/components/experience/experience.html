@@ -3,7 +3,7 @@
     <h2 class="section-title reveal-item">Professional Experience</h2>
 
     <div class="timeline-container">
-      @for (comp of dataService.data().experience.list; track comp.company; let compIdx = $index) {
+      @for (comp of dataService.data().experience.list; track $index; let compIdx = $index) {
         @if (comp.visible) {
           <!-- Company Header Card -->
           <div class="company-card glass-card reveal-item" style="margin-top: 30px;">
@@ -28,7 +28,7 @@
           <div class="timeline" style="margin-bottom: 50px;">
             <div class="timeline-line"></div>
 
-            @for (ach of comp.achievements; track ach.title; let achIdx = $index) {
+            @for (ach of comp.achievements; track $index; let achIdx = $index) {
               @if (ach.visible) {
                 <div class="timeline-item reveal-item" 
                      [class.active]="activeMilestone === compIdx + '_' + achIdx" 

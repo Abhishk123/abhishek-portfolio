@@ -22,6 +22,7 @@ export class Hero implements AfterViewInit, OnDestroy {
   particles: any[] = [];
   animationFrameId!: number;
   mouse = { x: -1000, y: -1000 };
+  private isDestroyed = false;
 
   ngAfterViewInit() {
     this.startTyping();
@@ -29,6 +30,7 @@ export class Hero implements AfterViewInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.isDestroyed = true;
     if (this.typingTimeout) clearTimeout(this.typingTimeout);
     if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
     window.removeEventListener('resize', this.onResize);
@@ -36,6 +38,7 @@ export class Hero implements AfterViewInit, OnDestroy {
   }
 
   startTyping() {
+    if (this.isDestroyed) return;
     const roles = this.dataService.data().profile.subtitles;
     if (!roles || roles.length === 0) {
       this.currentRole = '';
@@ -99,6 +102,7 @@ export class Hero implements AfterViewInit, OnDestroy {
   };
 
   onMouseMove = (e: MouseEvent) => {
+    if (!this.canvasRef || !this.canvasRef.nativeElement) return;
     const rect = this.canvasRef.nativeElement.getBoundingClientRect();
     this.mouse.x = e.clientX - rect.left;
     this.mouse.y = e.clientY - rect.top;

@@ -249,7 +249,7 @@ export class PortfolioDataService {
   private async loadInitialDataAsync() {
     let baseData = DEFAULT_DATA;
     try {
-      const response = await fetch('portfolio-data.json');
+      const response = await fetch('/portfolio-data.json');
       if (response.ok) {
         baseData = await response.json();
       }
