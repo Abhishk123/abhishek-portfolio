@@ -1,0 +1,257 @@
+{
+  "profile": {
+    "name": "Abhishek Urs C J",
+    "greeting": "Hello, World! I'm",
+    "subtitles": [
+      "Software Engineer",
+      "Automation Architect",
+      "JavaScript Specialist"
+    ],
+    "description": "A Senior Software Engineer with over 4 years of experience specializing in high-performance JavaScript-based application development, custom embedded frameworks (Lightning JS), and scalable test automation architectures using Cypress.",
+    "aboutTitle": "Transforming ideas into high-performance software",
+    "aboutText1": "I am a dynamic and results-driven Software Engineer with over 4 years of experience specializing in JavaScript-based application development and automation frameworks. My expertise lies in building high-performance applications for embedded systems and set-top boxes, as well as designing scalable verification platforms from scratch.",
+    "aboutText2": "At <strong>Tata Elxsi</strong>, I have spent years bridging the gap between hardware limitations and software capability, using technologies like <strong>Lightning JS</strong> and <strong>WebSockets</strong>. I am passionate about engineering clean, maintainable code architectures and leading teams toward successful milestones.",
+    "email": "abhishekurst@gmail.com",
+    "phone": "6361247286",
+    "address": "Chikkanayakanahalli, Tumkur, KA, IN",
+    "stats": [
+      {
+        "number": "4+",
+        "label": "Years Experience"
+      },
+      {
+        "number": "10+",
+        "label": "Automation Tools Built"
+      },
+      {
+        "number": "1",
+        "label": "\"Extra Mile\" Award"
+      }
+    ]
+  },
+  "experience": {
+    "visible": true,
+    "list": [
+      {
+        "company": "Tata Elxsi Limited",
+        "logoText": "TE",
+        "role": "Senior Engineer",
+        "duration": "2021 - Present",
+        "location": "Bengaluru, India",
+        "summary": "Architecting and engineering critical software solutions, building high-performance embedded TV/STB apps, and designing robust, automated testing frameworks from scratch.",
+        "visible": true,
+        "achievements": [
+          {
+            "title": "Application Development (Lightning JS)",
+            "text": "Architected and built a custom <strong>Certification App</strong> using <strong>Lightning JS</strong> designed for TV and set-top box platforms, ensuring high-performance execution.",
+            "tag": "Lightning JS",
+            "icon": "fa-solid fa-code",
+            "visible": true
+          },
+          {
+            "title": "System Integration (WebSockets)",
+            "text": "Engineered logic for the application to receive and execute complex commands via <strong>WebSockets</strong>, successfully bridging the gap between test suites and platform hardware capabilities.",
+            "tag": "WebSockets",
+            "icon": "fa-solid fa-network-wired",
+            "visible": true
+          },
+          {
+            "title": "Framework Architecture (Cypress)",
+            "text": "Designed a robust <strong>Cypress automation framework</strong> from the ground up to validate API support, system settings, and third-party application behaviors.",
+            "tag": "Cypress",
+            "icon": "fa-solid fa-vial",
+            "visible": true
+          },
+          {
+            "title": "Technical Leadership & Mentorship",
+            "text": "Developed custom glue code and modular JS commands, spearheaded peer code reviews to maintain code quality, and guided junior team members in framework design, effective script debugging, and clean coding practices.",
+            "tag": "Leadership",
+            "icon": "fa-solid fa-users-gear",
+            "visible": true
+          },
+          {
+            "title": "\"Extra Mile\" Award",
+            "text": "Received the prestigious <strong>\"Extra Mile\" award</strong> for delivering high-quality, maintainable code under tight deadlines and meeting critical project milestones.",
+            "tag": "Award",
+            "icon": "fa-solid fa-trophy",
+            "visible": true
+          }
+        ]
+      }
+    ],
+    "company": "Tata Elxsi Limited",
+    "logoText": "TE",
+    "role": "Senior Engineer",
+    "duration": "2021 - Present",
+    "location": "Bengaluru, India",
+    "summary": "Architecting and engineering critical software solutions, building high-performance embedded TV/STB apps, and designing robust, automated testing frameworks from scratch.",
+    "achievements": [
+      {
+        "title": "Application Development (Lightning JS)",
+        "text": "Architected and built a custom <strong>Certification App</strong> using <strong>Lightning JS</strong> designed for TV and set-top box platforms, ensuring high-performance execution.",
+        "tag": "Lightning JS",
+        "icon": "fa-solid fa-code",
+        "visible": true
+      },
+      {
+        "title": "System Integration (WebSockets)",
+        "text": "Engineered logic for the application to receive and execute complex commands via <strong>WebSockets</strong>, successfully bridging the gap between test suites and platform hardware capabilities.",
+        "tag": "WebSockets",
+        "icon": "fa-solid fa-network-wired",
+        "visible": true
+      },
+      {
+        "title": "Framework Architecture (Cypress)",
+        "text": "Designed a robust <strong>Cypress automation framework</strong> from the ground up to validate API support, system settings, and third-party application behaviors.",
+        "tag": "Cypress",
+        "icon": "fa-solid fa-vial",
+        "visible": true
+      },
+      {
+        "title": "Technical Leadership & Mentorship",
+        "text": "Developed custom glue code and modular JS commands, spearheaded peer code reviews to maintain code quality, and guided junior team members in framework design, effective script debugging, and clean coding practices.",
+        "tag": "Leadership",
+        "icon": "fa-solid fa-users-gear",
+        "visible": true
+      },
+      {
+        "title": "\"Extra Mile\" Award",
+        "text": "Received the prestigious <strong>\"Extra Mile\" award</strong> for delivering high-quality, maintainable code under tight deadlines and meeting critical project milestones.",
+        "tag": "Award",
+        "icon": "fa-solid fa-trophy",
+        "visible": true
+      }
+    ]
+  },
+  "skills": {
+    "visible": true,
+    "categories": [
+      {
+        "title": "Languages",
+        "icon": "fa-solid fa-code",
+        "glowClass": "glow-lang",
+        "visible": true,
+        "skills": [
+          {
+            "name": "JavaScript (ES6+)",
+            "level": 95
+          },
+          {
+            "name": "Node.js",
+            "level": 85
+          }
+        ]
+      },
+      {
+        "title": "Frontend Development",
+        "icon": "fa-solid fa-laptop-code",
+        "glowClass": "glow-front",
+        "visible": true,
+        "skills": [
+          {
+            "name": "Lightning JS",
+            "level": 90
+          },
+          {
+            "name": "Angular",
+            "level": 80
+          },
+          {
+            "name": "HTML5 & CSS3",
+            "level": 95
+          }
+        ]
+      },
+      {
+        "title": "Automation & Testing",
+        "icon": "fa-solid fa-bug-slash",
+        "glowClass": "glow-auto",
+        "visible": true,
+        "skills": [
+          {
+            "name": "Cypress",
+            "level": 95
+          },
+          {
+            "name": "Cucumber",
+            "level": 85
+          }
+        ]
+      },
+      {
+        "title": "Database & API",
+        "icon": "fa-solid fa-database",
+        "glowClass": "glow-db",
+        "visible": true,
+        "skills": [
+          {
+            "name": "REST APIs",
+            "level": 90
+          },
+          {
+            "name": "WebSockets",
+            "level": 90
+          },
+          {
+            "name": "MySQL",
+            "level": 75
+          }
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "visible": true,
+    "list": [
+      {
+        "title": "STB Certification Application",
+        "category": "Professional Project",
+        "description": "An embedded application architected using Lightning JS designed for set-top box (STB) certification workflows. Connects to test controllers for executing validation suites.",
+        "tags": [
+          "Lightning JS",
+          "JavaScript (ES6)",
+          "WebSockets",
+          "Embedded Systems"
+        ],
+        "icon": "fa-solid fa-tv",
+        "link": "#",
+        "visible": true
+      },
+      {
+        "title": "Cypress E2E Automation Framework",
+        "category": "Professional Project",
+        "description": "A robust test automation platform designed from the ground up to validate API endpoints, system configuration settings, and third-party TV app behaviors.",
+        "tags": [
+          "Cypress",
+          "JavaScript",
+          "REST APIs",
+          "Automation Framework"
+        ],
+        "icon": "fa-solid fa-microchip",
+        "link": "#",
+        "visible": true
+      },
+      {
+        "title": "Cloud Service Orchestration Engine",
+        "category": "Academic Project",
+        "description": "A cloud service orchestration platform designed to automate resource provisioning, coordinate multi-tenant APIs, and manage virtual network clusters.",
+        "tags": [
+          "Cloud Computing",
+          "REST API",
+          "Node.js",
+          "Orchestration"
+        ],
+        "icon": "fa-solid fa-cloud-arrow-up",
+        "link": "#",
+        "visible": true
+      }
+    ]
+  },
+  "sections": {
+    "about": true,
+    "experience": true,
+    "skills": true,
+    "projects": true,
+    "contact": true
+  }
+}
