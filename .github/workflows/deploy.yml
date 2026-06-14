@@ -25,6 +25,9 @@ jobs:
       - name: Build Application
         run: npx ng build --base-href /${{ github.event.repository.name }}/
 
+      - name: Create 404 Page for Routing
+        run: cp dist/abhishek-portfolio/browser/index.html dist/abhishek-portfolio/browser/404.html
+
       - name: Install rsync
         run: |
           apt-get update
