@@ -1,0 +1,40 @@
+<footer class="footer">
+  <div class="footer-container container">
+    <div class="footer-brand">
+      <a href="#" class="logo">
+        <span class="logo-bracket">&lt;</span>
+        <span class="logo-text">Abhishek</span>
+        <span class="logo-accent">.urs</span>
+        <span class="logo-bracket">/&gt;</span>
+      </a>
+      <p class="footer-tagline">Building premium software architectures, automation engines, and high-performance frontend systems.</p>
+    </div>
+
+    <div class="footer-links-wrapper">
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-socials">
+      <a href="mailto:{{ dataService.data().profile.email }}" aria-label="Email" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+      <a href="https://linkedin.com" aria-label="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com" aria-label="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="tel:{{ dataService.data().profile.phone }}" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container footer-bottom-content">
+      <p class="copyright">&copy; 2026 {{ dataService.data().profile.name }}. All rights reserved.</p>
+      <button (click)="scrollToTop()" class="btn-to-top" aria-label="Scroll to top">
+        Back to top <i class="fa-solid fa-arrow-up"></i>
+      </button>
+    </div>
+  </div>
+</footer>

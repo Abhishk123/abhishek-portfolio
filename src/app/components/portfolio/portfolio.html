@@ -1,0 +1,25 @@
+<app-header [activeSection]="activeSection"></app-header>
+<main>
+  <app-hero></app-hero>
+  
+  @if (dataService.data().sections.about) {
+    <app-about></app-about>
+  }
+  
+  @if (dataService.data().sections.experience) {
+    <app-experience></app-experience>
+  }
+  
+  @if (dataService.data().sections.skills) {
+    <app-skills></app-skills>
+  }
+  
+  @if (dataService.data().sections.projects) {
+    <app-projects></app-projects>
+  }
+  
+  @if (dataService.data().sections.contact) {
+    <app-contact></app-contact>
+  }
+</main>
+<app-footer></app-footer>

@@ -1,0 +1,37 @@
+<section id="home" class="hero-section">
+  <!-- Interactive Canvas Background -->
+  <canvas #particleCanvas class="canvas-bg"></canvas>
+
+  <!-- Ambient Glow Effects -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <div class="hero-container container">
+    <div class="hero-content">
+      <h4 class="hero-greeting reveal-item">{{ dataService.data().profile.greeting }}</h4>
+      <h1 class="hero-name reveal-item delay-1">{{ dataService.data().profile.name }}</h1>
+      <h2 class="hero-title reveal-item delay-2">
+        I am a <span class="typing-text">{{ currentRole }}</span><span class="cursor">|</span>
+      </h2>
+      <p class="hero-desc reveal-item delay-3">
+        {{ dataService.data().profile.description }}
+      </p>
+      
+      <div class="hero-actions reveal-item delay-4">
+        <a href="#projects" class="btn-primary">View Projects</a>
+        <button (click)="printResume()" class="btn-outline">
+          <i class="fa-solid fa-print"></i> Print Resume
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <div class="scroll-indicator">
+    <a href="#about" aria-label="Scroll down">
+      <span class="mouse-icon">
+        <span class="wheel"></span>
+      </span>
+    </a>
+  </div>
+</section>

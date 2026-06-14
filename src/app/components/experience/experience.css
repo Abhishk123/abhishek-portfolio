@@ -1,0 +1,257 @@
+.experience-section {
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 2;
+}
+
+.timeline-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Company Card */
+.company-card {
+  padding: 30px;
+  margin-bottom: 50px;
+  background: rgba(17, 24, 39, 0.5);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+}
+
+.company-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.company-logo-text {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: var(--glow-shadow);
+}
+
+.company-meta {
+  flex: 1;
+  min-width: 200px;
+}
+
+.role-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.company-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--secondary);
+  margin-bottom: 5px;
+}
+
+.job-location {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.badge-duration {
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: var(--primary);
+  border-radius: 20px;
+}
+
+.job-description p {
+  color: var(--text-secondary);
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 15px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary), var(--secondary), var(--border-color));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  transition: var(--transition-smooth);
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Dots */
+.timeline-dot-container {
+  position: absolute;
+  left: -40px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  transition: var(--transition-smooth);
+  z-index: 3;
+}
+
+/* Timeline Card */
+.timeline-card {
+  padding: 24px;
+  background: rgba(17, 24, 39, 0.3);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  position: relative;
+  cursor: pointer;
+}
+
+.achievement-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--secondary);
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+  transition: var(--transition-smooth);
+}
+
+.achievement-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.achievement-text {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.achievement-tag {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border-color);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Active Hover State Styles */
+.timeline-item.active .timeline-dot {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  box-shadow: 0 0 12px var(--secondary);
+  transform: scale(1.3);
+}
+
+.timeline-item.active .timeline-card {
+  border-color: rgba(6, 182, 212, 0.3);
+  box-shadow: 0 8px 30px rgba(6, 182, 212, 0.05);
+  transform: translateX(5px);
+}
+
+.timeline-item.active .achievement-icon {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: var(--secondary);
+  color: var(--secondary);
+}
+
+/* Award Card Highlights */
+.award-highlight.timeline-card {
+  border-color: rgba(236, 72, 153, 0.25);
+  background: linear-gradient(135deg, rgba(17, 24, 39, 0.5) 0%, rgba(236, 72, 153, 0.05) 100%);
+}
+
+.award-highlight .achievement-icon {
+  color: var(--accent);
+}
+
+.timeline-item.active .award-highlight.timeline-card {
+  border-color: var(--accent);
+  box-shadow: 0 8px 30px rgba(236, 72, 153, 0.1);
+}
+
+.timeline-item.active .award-highlight .timeline-dot {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 12px var(--accent);
+}
+
+/* Responsive Overrides */
+@media (max-width: 576px) {
+  .timeline {
+    padding-left: 30px;
+  }
+  
+  .timeline-line {
+    left: 10px;
+  }
+  
+  .timeline-dot-container {
+    left: -35px;
+  }
+  
+  .company-card {
+    padding: 20px;
+  }
+  
+  .company-logo-text {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  
+  .role-title {
+    font-size: 1.2rem;
+  }
+  
+  .timeline-card {
+    padding: 18px;
+  }
+}

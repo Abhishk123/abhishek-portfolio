@@ -1,0 +1,53 @@
+<section id="experience" class="section experience-section">
+  <div class="container">
+    <h2 class="section-title reveal-item">Professional Experience</h2>
+
+    <div class="timeline-container">
+      @for (comp of dataService.data().experience.list; track comp.company; let compIdx = $index) {
+        @if (comp.visible) {
+          <!-- Company Header Card -->
+          <div class="company-card glass-card reveal-item" style="margin-top: 30px;">
+            <div class="company-header">
+              <div class="company-logo-text">{{ comp.logoText }}</div>
+              <div class="company-meta">
+                <h3 class="role-title">{{ comp.role }}</h3>
+                <h4 class="company-name">{{ comp.company }}</h4>
+                <span class="job-location"><i class="fa-solid fa-location-dot"></i> {{ comp.location }}</span>
+              </div>
+              <div class="job-duration">
+                <span class="badge-duration">{{ comp.duration }}</span>
+              </div>
+            </div>
+
+            <div class="job-description">
+              <p>{{ comp.summary }}</p>
+            </div>
+          </div>
+
+          <!-- Achievements Timeline for this Company -->
+          <div class="timeline" style="margin-bottom: 50px;">
+            <div class="timeline-line"></div>
+
+            @for (ach of comp.achievements; track ach.title; let achIdx = $index) {
+              @if (ach.visible) {
+                <div class="timeline-item reveal-item" 
+                     [class.active]="activeMilestone === compIdx + '_' + achIdx" 
+                     (mouseenter)="activeMilestone = compIdx + '_' + achIdx">
+                  <div class="timeline-dot-container">
+                    <div class="timeline-dot"></div>
+                  </div>
+                  <div class="timeline-card glass-card" [class.award-highlight]="ach.tag === 'Award'">
+                    <span class="achievement-icon"><i class="{{ ach.icon }}"></i></span>
+                    <h4 class="achievement-title">{{ ach.title }}</h4>
+                    <p class="achievement-text" [innerHTML]="ach.text"></p>
+                    <span class="achievement-tag">{{ ach.tag }}</span>
+                  </div>
+                </div>
+              }
+            }
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>

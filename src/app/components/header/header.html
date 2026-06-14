@@ -1,0 +1,44 @@
+<header class="header-nav" [class.scrolled]="isScrolled">
+  <div class="header-container">
+    <a href="#" class="logo">
+      <span class="logo-bracket">&lt;</span>
+      <span class="logo-text">Abhishek</span>
+      <span class="logo-accent">.urs</span>
+      <span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-toggle" (click)="toggleMenu()" aria-label="Toggle Menu" [class.active]="isMenuOpen">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <!-- Navigation Menu -->
+    <nav class="nav-menu" [class.active]="isMenuOpen">
+      <ul class="nav-list">
+        <li><a href="#home" (click)="closeMenu()" [class.active]="activeSection === 'home'">Home</a></li>
+        @if (dataService.data().sections.about) {
+          <li><a href="#about" (click)="closeMenu()" [class.active]="activeSection === 'about'">About</a></li>
+        }
+        @if (dataService.data().sections.experience) {
+          <li><a href="#experience" (click)="closeMenu()" [class.active]="activeSection === 'experience'">Experience</a></li>
+        }
+        @if (dataService.data().sections.skills) {
+          <li><a href="#skills" (click)="closeMenu()" [class.active]="activeSection === 'skills'">Skills</a></li>
+        }
+        @if (dataService.data().sections.projects) {
+          <li><a href="#projects" (click)="closeMenu()" [class.active]="activeSection === 'projects'">Projects</a></li>
+        }
+        @if (dataService.data().sections.contact) {
+          <li><a href="#contact" (click)="closeMenu()" [class.active]="activeSection === 'contact'">Contact</a></li>
+        }
+      </ul>
+      @if (dataService.data().sections.contact) {
+        <div class="nav-cta">
+          <a href="#contact" class="btn-primary-sm">Get In Touch</a>
+        </div>
+      }
+    </nav>
+  </div>
+</header>

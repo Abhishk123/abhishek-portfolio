@@ -1,0 +1,43 @@
+<section id="contact" class="section contact-section">
+  <div class="container">
+    <h2 class="section-title reveal-item">Get In Touch</h2>
+
+    <div class="contact-centered-container reveal-item">
+      <div class="contact-info">
+        <h3 class="info-title">Let's build something amazing together</h3>
+        <p class="info-text">
+          I am currently seeking opportunities to transition into full-time software development roles. If you have any inquiries, project requests, or just want to connect, feel free to reach out directly!
+        </p>
+
+        <div class="info-grid">
+          <!-- Email -->
+          <div class="info-item glass-card">
+            <span class="info-icon"><i class="fa-solid fa-envelope"></i></span>
+            <div class="info-details">
+              <span class="info-label">Email Me</span>
+              <a href="mailto:{{ dataService.data().profile.email }}" class="info-value">{{ dataService.data().profile.email }}</a>
+            </div>
+          </div>
+
+          <!-- Phone -->
+          <div class="info-item glass-card">
+            <span class="info-icon"><i class="fa-solid fa-phone"></i></span>
+            <div class="info-details">
+              <span class="info-label">Call Me</span>
+              <a href="tel:{{ dataService.data().profile.phone }}" class="info-value">+91 {{ dataService.data().profile.phone }}</a>
+            </div>
+          </div>
+
+          <!-- Location -->
+          <div class="info-item glass-card">
+            <span class="info-icon"><i class="fa-solid fa-location-dot"></i></span>
+            <div class="info-details">
+              <span class="info-label">Location</span>
+              <span class="info-value text-normal">{{ dataService.data().profile.address }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

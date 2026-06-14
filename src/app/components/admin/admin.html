@@ -1,0 +1,547 @@
+<div class="admin-wrapper">
+  <!-- 1. AUTHORIZATION LOGIN VIEW -->
+  @if (!isLoggedIn) {
+    <div class="login-container">
+      <div class="login-card glass-card">
+        <h2 class="login-title">Portfolio Admin</h2>
+        <p class="login-subtitle">Please enter password to modify content</p>
+        
+        <form (submit)="login()">
+          <div class="form-group">
+            <input type="password" id="pass" name="password" [(ngModel)]="password" required placeholder=" " />
+            <label for="pass">Admin Password</label>
+          </div>
+          
+          @if (loginError) {
+            <p class="error-msg">Incorrect password. Please try again.</p>
+          }
+          
+          <div class="login-actions">
+            <button type="submit" class="btn-primary login-btn">Login</button>
+            <button type="button" class="btn-outline login-btn" (click)="goToWebsite()">Go to Site</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  } @else {
+    <!-- 2. EDITOR INTERFACE -->
+    <div class="editor-container">
+      <!-- Sidebar Navigation -->
+      <aside class="editor-sidebar glass-card">
+        <div class="admin-header">
+          <h3>Admin Panel</h3>
+          <span class="admin-user"><i class="fa-solid fa-user-shield"></i> Abhishek Urs</span>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <button [class.active]="activeTab === 'sections'" (click)="activeTab = 'sections'">
+            <i class="fa-solid fa-eye"></i> Sections Visibility
+          </button>
+          <button [class.active]="activeTab === 'profile'" (click)="activeTab = 'profile'">
+            <i class="fa-solid fa-address-card"></i> Profile & About
+          </button>
+          <button [class.active]="activeTab === 'experience'" (click)="activeTab = 'experience'">
+            <i class="fa-solid fa-briefcase"></i> Experience Timeline
+          </button>
+          <button [class.active]="activeTab === 'skills'" (click)="activeTab = 'skills'">
+            <i class="fa-solid fa-sliders"></i> Skill Levels
+          </button>
+          <button [class.active]="activeTab === 'projects'" (click)="activeTab = 'projects'">
+            <i class="fa-solid fa-folder-open"></i> Projects Grid
+          </button>
+          <button [class.active]="activeTab === 'github'" (click)="activeTab = 'github'">
+            <i class="fa-brands fa-github"></i> GitHub Sync Settings
+          </button>
+        </nav>
+        
+        <div class="sidebar-footer">
+          <button class="btn-outline logout-btn" (click)="logout()">
+            <i class="fa-solid fa-right-from-bracket"></i> Logout
+          </button>
+        </div>
+      </aside>
+
+      <!-- Main Editor Content Area -->
+      <main class="editor-main glass-card">
+        <div class="editor-content-wrapper">
+          
+          <!-- TAB 1: SECTIONS VISIBILITY -->
+          @if (activeTab === 'sections') {
+            <div class="tab-content">
+              <h3>Section Toggles</h3>
+              <p class="tab-desc">Toggle whole sections of your website on or off.</p>
+              
+              <div class="toggles-list">
+                <label class="checkbox-container glass-card">
+                  <input type="checkbox" [(ngModel)]="editorData.sections.about" />
+                  <span class="checkmark"></span>
+                  <div class="toggle-info">
+                    <strong>About Me Section</strong>
+                    <span>Show or hide your personal summary and core values.</span>
+                  </div>
+                </label>
+                
+                <label class="checkbox-container glass-card">
+                  <input type="checkbox" [(ngModel)]="editorData.sections.experience" />
+                  <span class="checkmark"></span>
+                  <div class="toggle-info">
+                    <strong>Experience Section</strong>
+                    <span>Show or hide the timeline representing Tata Elxsi Limited.</span>
+                  </div>
+                </label>
+                
+                <label class="checkbox-container glass-card">
+                  <input type="checkbox" [(ngModel)]="editorData.sections.skills" />
+                  <span class="checkmark"></span>
+                  <div class="toggle-info">
+                    <strong>Skills Section</strong>
+                    <span>Show or hide the technical skill category progress cards.</span>
+                  </div>
+                </label>
+                
+                <label class="checkbox-container glass-card">
+                  <input type="checkbox" [(ngModel)]="editorData.sections.projects" />
+                  <span class="checkmark"></span>
+                  <div class="toggle-info">
+                    <strong>Projects Section</strong>
+                    <span>Show or hide the featured cards showing your STB and Cloud work.</span>
+                  </div>
+                </label>
+                
+                <label class="checkbox-container glass-card">
+                  <input type="checkbox" [(ngModel)]="editorData.sections.contact" />
+                  <span class="checkmark"></span>
+                  <div class="toggle-info">
+                    <strong>Contact Section</strong>
+                    <span>Show or hide the Get in Touch footer links.</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          }
+
+          <!-- TAB 2: PROFILE & ABOUT -->
+          @if (activeTab === 'profile') {
+            <div class="tab-content">
+              <h3>Profile & About Customizations</h3>
+              <p class="tab-desc">Modify greeting, names, headings, and profile texts.</p>
+              
+              <div class="editor-form">
+                <div class="form-row">
+                  <div class="form-group flex-1">
+                    <input type="text" id="name" name="name" [(ngModel)]="editorData.profile.name" placeholder=" " />
+                    <label for="name">Display Name</label>
+                  </div>
+                  <div class="form-group flex-1">
+                    <input type="text" id="greet" name="greeting" [(ngModel)]="editorData.profile.greeting" placeholder=" " />
+                    <label for="greet">Greeting Header</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <textarea id="desc" name="description" [(ngModel)]="editorData.profile.description" placeholder=" " rows="3"></textarea>
+                  <label for="desc">Hero Description</label>
+                </div>
+
+                <hr class="form-divider" />
+                
+                <h4>Typewriter Role Subtitles</h4>
+                @for (sub of editorData.profile.subtitles; track $index) {
+                  <div class="form-row subtitle-item">
+                    <div class="form-group flex-1">
+                      <input type="text" name="subtitle_{{$index}}" [(ngModel)]="editorData.profile.subtitles[$index]" placeholder=" " />
+                      <label>Role #{{$index + 1}}</label>
+                    </div>
+                    <button type="button" class="btn-danger" (click)="removeSubtitle($index)">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                  </div>
+                }
+                <button type="button" class="btn-outline add-btn" (click)="addSubtitle()">
+                  <i class="fa-solid fa-plus"></i> Add Subtitle Role
+                </button>
+
+                <hr class="form-divider" />
+
+                <h4>About Me Text</h4>
+                <div class="form-group">
+                  <input type="text" id="aboutTitle" name="aboutTitle" [(ngModel)]="editorData.profile.aboutTitle" placeholder=" " />
+                  <label for="aboutTitle">About Subtitle</label>
+                </div>
+                <div class="form-group">
+                  <textarea id="aboutText1" name="aboutText1" [(ngModel)]="editorData.profile.aboutText1" placeholder=" " rows="4"></textarea>
+                  <label for="aboutText1">About Description Paragraph 1</label>
+                </div>
+                <div class="form-group">
+                  <textarea id="aboutText2" name="aboutText2" [(ngModel)]="editorData.profile.aboutText2" placeholder=" " rows="4"></textarea>
+                  <label for="aboutText2">About Description Paragraph 2 (HTML support)</label>
+                </div>
+
+                <hr class="form-divider" />
+
+                <h4>Contact Details</h4>
+                <div class="form-row">
+                  <div class="form-group flex-1">
+                    <input type="email" id="email" name="email" [(ngModel)]="editorData.profile.email" placeholder=" " />
+                    <label for="email">Contact Email</label>
+                  </div>
+                  <div class="form-group flex-1">
+                    <input type="text" id="phone" name="phone" [(ngModel)]="editorData.profile.phone" placeholder=" " />
+                    <label for="phone">Contact Phone</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="text" id="addr" name="address" [(ngModel)]="editorData.profile.address" placeholder=" " />
+                  <label for="addr">Contact Location</label>
+                </div>
+
+                <hr class="form-divider" />
+
+                <h4>Quick Stats Counters</h4>
+                @for (stat of editorData.profile.stats; track $index) {
+                  <div class="form-row flex-align-center">
+                    <div class="form-group flex-1">
+                      <input type="text" name="stat_num_{{$index}}" [(ngModel)]="stat.number" placeholder=" " />
+                      <label>Number (e.g. 4+)</label>
+                    </div>
+                    <div class="form-group flex-2">
+                      <input type="text" name="stat_lbl_{{$index}}" [(ngModel)]="stat.label" placeholder=" " />
+                      <label>Label</label>
+                    </div>
+                    <button type="button" class="btn-danger" (click)="removeStat($index)">
+                      <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                  </div>
+                }
+                <button type="button" class="btn-outline add-btn" (click)="addStat()">
+                  <i class="fa-solid fa-plus"></i> Add Stat Card
+                </button>
+              </div>
+            </div>
+          }
+
+          <!-- TAB 3: EXPERIENCE TIMELINE -->
+          @if (activeTab === 'experience') {
+            <div class="tab-content">
+              <h3>Work Experience History</h3>
+              <p class="tab-desc">Add or remove company profiles, edit metadata, and configure achievements per company.</p>
+              
+              <div class="editor-form">
+                @for (comp of editorData.experience.list; track $index; let compIdx = $index) {
+                  <div class="company-editor-block glass-card" style="padding: 30px; margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.06);">
+                    <div class="card-editor-header" style="margin-bottom: 20px;">
+                      <h4>Company #{{ compIdx + 1 }}: {{ comp.company }}</h4>
+                      <div class="card-header-actions">
+                        <label class="card-toggle-visible">
+                          <input type="checkbox" [(ngModel)]="comp.visible" />
+                          <span>Show Section</span>
+                        </label>
+                        <button type="button" class="btn-danger-sm" (click)="removeCompany(compIdx)">
+                          <i class="fa-solid fa-trash-can"></i> Delete Company
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group flex-2">
+                        <input type="text" name="comp_name_{{compIdx}}" [(ngModel)]="comp.company" placeholder=" " />
+                        <label>Company Name</label>
+                      </div>
+                      <div class="form-group flex-1">
+                        <input type="text" name="comp_logo_{{compIdx}}" [(ngModel)]="comp.logoText" placeholder=" " />
+                        <label>Logo Initials (e.g. TE)</label>
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group flex-2">
+                        <input type="text" name="comp_role_{{compIdx}}" [(ngModel)]="comp.role" placeholder=" " />
+                        <label>Job Title</label>
+                      </div>
+                      <div class="form-group flex-1">
+                        <input type="text" name="comp_dur_{{compIdx}}" [(ngModel)]="comp.duration" placeholder=" " />
+                        <label>Duration</label>
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group flex-2">
+                        <input type="text" name="comp_loc_{{compIdx}}" [(ngModel)]="comp.location" placeholder=" " />
+                        <label>Location</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <textarea name="comp_sum_{{compIdx}}" [(ngModel)]="comp.summary" placeholder=" " rows="2"></textarea>
+                      <label>Job Summary Description</label>
+                    </div>
+
+                    <div class="nested-achievements-editor" style="background: rgba(8,11,17,0.3); padding: 20px; border-radius: 10px; margin-top: 15px;">
+                      <h5 style="color: var(--secondary); margin-bottom: 15px;">Achievements Timeline</h5>
+                      
+                      @for (ach of comp.achievements; track $index; let achIdx = $index) {
+                        <div class="timeline-editor-card glass-card" style="margin-bottom: 15px; background: rgba(17,24,39,0.35);">
+                          <div class="card-editor-header">
+                            <h6>Achievement #{{ achIdx + 1 }}: {{ ach.title }}</h6>
+                            <div class="card-header-actions">
+                              <label class="card-toggle-visible">
+                                <input type="checkbox" [(ngModel)]="ach.visible" />
+                                <span>Show Dot</span>
+                              </label>
+                              <button type="button" class="btn-danger-sm" (click)="removeAchievement(compIdx, achIdx)">
+                                <i class="fa-solid fa-trash-can"></i> Delete
+                              </button>
+                            </div>
+                          </div>
+
+                          <div class="form-row">
+                            <div class="form-group flex-2">
+                              <input type="text" name="ach_title_{{compIdx}}_{{achIdx}}" [(ngModel)]="ach.title" placeholder=" " />
+                              <label>Title</label>
+                            </div>
+                            <div class="form-group flex-1">
+                              <input type="text" name="ach_tag_{{compIdx}}_{{achIdx}}" [(ngModel)]="ach.tag" placeholder=" " />
+                              <label>Tag (e.g. Award)</label>
+                            </div>
+                          </div>
+                          
+                          <div class="form-row">
+                            <div class="form-group flex-2">
+                              <textarea name="ach_text_{{compIdx}}_{{achIdx}}" [(ngModel)]="ach.text" placeholder=" " rows="2"></textarea>
+                              <label>Achievement Description (HTML bold support)</label>
+                            </div>
+                            <div class="form-group flex-1">
+                              <input type="text" name="ach_icon_{{compIdx}}_{{achIdx}}" [(ngModel)]="ach.icon" placeholder=" " />
+                              <label>FontAwesome Icon Class</label>
+                            </div>
+                          </div>
+                        </div>
+                      }
+                      <button type="button" class="btn-outline-sm" (click)="addAchievement(compIdx)">
+                        <i class="fa-solid fa-plus"></i> Add Achievement Node
+                      </button>
+                    </div>
+                  </div>
+                }
+                <button type="button" class="btn-outline add-btn" (click)="addCompany()">
+                  <i class="fa-solid fa-plus"></i> Add Company Experience
+                </button>
+              </div>
+            </div>
+          }
+
+          <!-- TAB 4: SKILL LEVELS -->
+          @if (activeTab === 'skills') {
+            <div class="tab-content">
+              <h3>Technical Skill Meters</h3>
+              <p class="tab-desc">Edit category groups and adjust percentages directly from sliders.</p>
+              
+              <div class="editor-form">
+                @for (cat of editorData.skills.categories; track $index; let catIndex = $index) {
+                  <div class="skills-editor-category glass-card">
+                    <div class="card-editor-header">
+                      <h4>Category: {{cat.title}}</h4>
+                      <label class="card-toggle-visible">
+                        <input type="checkbox" [(ngModel)]="cat.visible" />
+                        <span>Show Category</span>
+                      </label>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group flex-2">
+                        <input type="text" name="cat_title_{{catIndex}}" [(ngModel)]="cat.title" placeholder=" " />
+                        <label>Category Name</label>
+                      </div>
+                      <div class="form-group flex-1">
+                        <input type="text" name="cat_icon_{{catIndex}}" [(ngModel)]="cat.icon" placeholder=" " />
+                        <label>Icon Class</label>
+                      </div>
+                    </div>
+
+                    <div class="nested-skills-list">
+                      <h5>Skills List</h5>
+                      @for (sk of cat.skills; track $index; let skIndex = $index) {
+                        <div class="skill-slider-row">
+                          <div class="form-group flex-2">
+                            <input type="text" name="sk_name_{{catIndex}}_{{skIndex}}" [(ngModel)]="sk.name" placeholder=" " />
+                            <label>Skill Name</label>
+                          </div>
+                          
+                          <div class="slider-group flex-3">
+                            <div class="slider-labels">
+                              <span>Proficiency</span>
+                              <strong>{{sk.level}}%</strong>
+                            </div>
+                            <input type="range" min="1" max="100" name="sk_lvl_{{catIndex}}_{{skIndex}}" [(ngModel)]="sk.level" class="range-slider" />
+                          </div>
+
+                          <button type="button" class="btn-danger-sm" (click)="removeSkill(catIndex, skIndex)" aria-label="Delete Skill">
+                            <i class="fa-solid fa-trash-can"></i>
+                          </button>
+                        </div>
+                      }
+                      <button type="button" class="btn-outline-sm" (click)="addSkill(catIndex)">
+                        <i class="fa-solid fa-plus"></i> Add Skill Item
+                      </button>
+                    </div>
+                  </div>
+                }
+              </div>
+            </div>
+          }
+
+          <!-- TAB 5: PROJECTS GRID -->
+          @if (activeTab === 'projects') {
+            <div class="tab-content">
+              <h3>Featured Projects Grid</h3>
+              <p class="tab-desc">Edit project cards, customize keywords, and toggle display cards.</p>
+              
+              <div class="editor-form">
+                @for (proj of editorData.projects.list; track $index; let projIndex = $index) {
+                  <div class="project-editor-card glass-card">
+                    <div class="card-editor-header">
+                      <h5>Project #{{projIndex + 1}}: {{proj.title}}</h5>
+                      <div class="card-header-actions">
+                        <label class="card-toggle-visible">
+                          <input type="checkbox" [(ngModel)]="proj.visible" />
+                          <span>Show Card</span>
+                        </label>
+                        <button type="button" class="btn-danger-sm" (click)="removeProject(projIndex)">
+                          <i class="fa-solid fa-trash-can"></i> Delete
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group flex-2">
+                        <input type="text" name="proj_title_{{projIndex}}" [(ngModel)]="proj.title" placeholder=" " />
+                        <label>Title</label>
+                      </div>
+                      <div class="form-group flex-1">
+                        <input type="text" name="proj_cat_{{projIndex}}" [(ngModel)]="proj.category" placeholder=" " />
+                        <label>Category Badge</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <textarea name="proj_desc_{{projIndex}}" [(ngModel)]="proj.description" placeholder=" " rows="2"></textarea>
+                      <label>Project Description</label>
+                    </div>
+
+                    <div class="form-row">
+                      <div class="form-group flex-2">
+                        <input type="text" name="proj_link_{{projIndex}}" [(ngModel)]="proj.link" placeholder=" " />
+                        <label>Project URL Link</label>
+                      </div>
+                      <div class="form-group flex-1">
+                        <input type="text" name="proj_icon_{{projIndex}}" [(ngModel)]="proj.icon" placeholder=" " />
+                        <label>FontAwesome Icon</label>
+                      </div>
+                    </div>
+
+                    <!-- Tags list -->
+                    <div class="project-tags-editor">
+                      <h6>Technology Tags</h6>
+                      <div class="tag-chips">
+                        @for (tag of proj.tags; track $index; let tagIndex = $index) {
+                          <span class="admin-tag-chip">
+                            {{tag}}
+                            <button type="button" (click)="removeTag(projIndex, tagIndex)">&times;</button>
+                          </span>
+                        }
+                      </div>
+                      <div class="add-tag-group">
+                        <input type="text" placeholder="Add custom tag..." #newTagInput (keydown.enter)="addTag(projIndex, newTagInput); $event.preventDefault()" />
+                        <button type="button" class="btn-primary-sm" (click)="addTag(projIndex, newTagInput)">Add</button>
+                      </div>
+                    </div>
+                  </div>
+                }
+                <button type="button" class="btn-outline add-btn" (click)="addProject()">
+                  <i class="fa-solid fa-plus"></i> Add Project Card
+                </button>
+              </div>
+            </div>
+          }
+
+          <!-- TAB 6: GITHUB SYNC SETTINGS -->
+          @if (activeTab === 'github') {
+            <div class="tab-content">
+              <h3>GitHub Sync Integration Settings</h3>
+              <p class="tab-desc">Configure credentials to commit changes directly to your repository, triggering automated rebuilds.</p>
+              
+              <div class="github-help-alert glass-card" style="padding: 20px; border-left: 4px solid var(--secondary); margin-bottom: 30px; background: rgba(6,182,212,0.05);">
+                <h5 style="color: var(--secondary); margin-bottom: 10px;"><i class="fa-brands fa-github"></i> Automate Deploys to GitHub Pages</h5>
+                <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px;">
+                  By linking your repository, you can click the **Sync to GitHub** button. This app will write `public/portfolio-data.json` directly to your repository, prompting your GitHub Actions CI/CD to rebuild and republish your portfolio automatically!
+                </p>
+                <p style="font-size: 0.8rem; color: var(--text-muted);">
+                  <strong>Security Note:</strong> Your credentials are stored strictly on your local browser profile (`localStorage`) and never uploaded to any backend.
+                </p>
+              </div>
+
+              <div class="editor-form">
+                <div class="form-row">
+                  <div class="form-group flex-1">
+                    <input type="text" id="gitUser" name="gitUsername" [(ngModel)]="gitUsername" placeholder=" " />
+                    <label for="gitUser">GitHub Username</label>
+                  </div>
+                  <div class="form-group flex-1">
+                    <input type="text" id="gitRepo" name="gitRepo" [(ngModel)]="gitRepo" placeholder=" " />
+                    <label for="gitRepo">Repository Name</label>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group flex-1">
+                    <input type="text" id="gitBranch" name="gitBranch" [(ngModel)]="gitBranch" placeholder=" " />
+                    <label for="gitBranch">Branch Name (defaults to main)</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <input type="password" id="gitToken" name="gitToken" [(ngModel)]="gitToken" placeholder=" " />
+                  <label for="gitToken">Personal Access Token (Classic / Fine-Grained)</label>
+                </div>
+                
+                <div style="margin-top: 10px;">
+                  <button type="button" class="btn-primary" (click)="saveGitSettings()" style="padding: 10px 20px;">
+                    <i class="fa-solid fa-floppy-disk"></i> Save GitHub Credentials
+                  </button>
+                </div>
+              </div>
+            </div>
+          }
+
+        </div>
+        
+        <!-- Sticky Editor Footer Panel -->
+        <footer class="editor-footer">
+          <button class="btn-primary" (click)="save()">
+            <i class="fa-solid fa-floppy-disk"></i> Save Edits
+          </button>
+          
+          <button class="btn-primary" (click)="syncGitHub()" [disabled]="isSyncing" style="background: linear-gradient(135deg, #2563eb, #1d4ed8);">
+            @if (isSyncing) {
+              <i class="fa-solid fa-circle-notch fa-spin"></i> Syncing to GitHub...
+            } @else {
+              <i class="fa-brands fa-github"></i> Sync to GitHub
+            }
+          </button>
+
+          <button class="btn-outline" (click)="export()">
+            <i class="fa-solid fa-file-export"></i> Export JSON Config
+          </button>
+          
+          <button class="btn-outline" (click)="reset()">
+            <i class="fa-solid fa-arrow-rotate-left"></i> Revert Defaults
+          </button>
+          
+          <button class="btn-primary go-site-btn" (click)="goToWebsite()">
+            <i class="fa-solid fa-globe"></i> Visit Website
+          </button>
+        </footer>
+      </main>
+    </div>
+  }
+</div>

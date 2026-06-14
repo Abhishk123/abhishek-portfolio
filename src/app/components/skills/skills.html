@@ -1,0 +1,35 @@
+<section id="skills" class="section skills-section">
+  <div class="container">
+    <h2 class="section-title reveal-item">Technical Skills</h2>
+
+    <div class="grid-2 skills-grid">
+      @for (category of dataService.data().skills.categories; track category.title) {
+        @if (category.visible) {
+          <div class="skill-category-card glass-card reveal-item">
+            <!-- Background Accent Glow -->
+            <div class="card-glow-effect {{ category.glowClass }}"></div>
+            
+            <div class="category-header">
+              <span class="category-icon"><i class="{{ category.icon }}"></i></span>
+              <h3 class="category-title">{{ category.title }}</h3>
+            </div>
+
+            <div class="skills-list">
+              @for (skill of category.skills; track skill.name) {
+                <div class="skill-item">
+                  <div class="skill-info">
+                    <span class="skill-name">{{ skill.name }}</span>
+                    <span class="skill-percentage">{{ skill.level }}%</span>
+                  </div>
+                  <div class="progress-bar-container">
+                    <div class="progress-bar" [style.width.%]="skill.level"></div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      }
+    </div>
+  </div>
+</section>
